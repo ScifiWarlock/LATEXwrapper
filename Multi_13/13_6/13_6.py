@@ -50,7 +50,7 @@ ld.equation(ld.greek('nabla') + ' f(x,y)', "6x"+fr"\vec{{i}}" + "-" + "4y"+fr"\v
 ld.equation("u", "3/5" + fr"\vec{{i}}" + "+" + "4/5" + fr"\vec{{j}}")
 ld.equation(ld.greek('nabla') + ' f(-3/4, 0)' + fr"\cdot" + " u", "-9/2" + fr"\vec{{i}}" + fr"\cdot" + "(" + "3/5" + fr"\vec{{i}}" + "+" + "4/5" + fr"\vec{{j}}" + ")")
 
-ld.line("So the directional derivative or dot product for this question evaluates to: -27/10", True)
+ld.line("So the directional derivative for this question evaluates to: -27/10", True)
 
 ld.gahzamn()
 ld.compile()
