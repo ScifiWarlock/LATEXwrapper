@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  24 DEC 2024 14:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  24 DEC 2024 15:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -99,53 +99,67 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 8.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 8.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 9.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 9.
 
-Underfull \hbox (badness 10000) in paragraph at lines 9--10
+(./test1.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 1.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 1.
+)
+\tf@toc=\write3
+\openout3 = `test1.toc'.
+
+ (./test1.lof)
+\tf@lof=\write4
+\openout4 = `test1.lof'.
+
+ [1
+
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
 
  []
 
-</Users/omkar/Desktop/Screenshots/ss 2024-12-24 at 14.06.png, id=1, 509.905pt x
- 472.76625pt>
+</Users/omkar/Desktop/Screenshots/ss 2024-12-24 at 14.06.png, id=10, 509.905pt 
+x 472.76625pt>
 File: /Users/omkar/Desktop/Screenshots/ss 2024-12-24 at 14.06.png Graphic file 
 (type png)
 <use /Users/omkar/Desktop/Screenshots/ss 2024-12-24 at 14.06.png>
 Package pdftex.def Info: /Users/omkar/Desktop/Screenshots/ss 2024-12-24 at 14.0
-6.png  used on input line 14.
+6.png  used on input line 19.
 (pdftex.def)             Requested size: 142.2667pt x 142.2638pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--17
+Underfull \hbox (badness 10000) in paragraph at lines 22--23
 
  []
 
-[1
-
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </Users/
-omkar/Desktop/Screenshots/ss 2024-12-24 at 14.06.png>] (./test1.aux)
+[2 </Users/omkar/Desktop/Screenshots/ss 2024-12-24 at 14.06.png>] (./test1.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 1300 strings out of 474116
- 21706 string characters out of 5743681
- 1927187 words of memory out of 5000000
- 23699 multiletter control sequences out of 15000+600000
- 561104 words of font info for 46 fonts, out of 8000000 for 9000
+ 1320 strings out of 474116
+ 21945 string characters out of 5743681
+ 1928187 words of memory out of 5000000
+ 23711 multiletter control sequences out of 15000+600000
+ 562324 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,6n,65p,232b,226s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></u
-sr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on test1.pdf (1 page, 135834 bytes).
+ 57i,6n,65p,232b,242s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
+/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
+r/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
+local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/lo
+cal/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local
+/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on test1.pdf (2 pages, 190126 bytes).
 PDF statistics:
- 31 PDF objects out of 1000 (max. 8388607)
- 17 compressed objects within 1 object stream
+ 59 PDF objects out of 1000 (max. 8388607)
+ 34 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
