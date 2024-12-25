@@ -1,3 +1,3 @@
-__all__ = ["LATEXdefinition.py"]
+__all__ = ["LATEXdefinitions.py"]
 
-from . import LATEXdefintions
+from . import LATEXdefinitions
