@@ -15,13 +15,21 @@ greek_dic = {'alpha':fr'\alpha',
              'theta':fr'\theta',
              'lambda':fr'\lamda',
              'mu':fr'\mu',
-             'pi':fr'\pi'}
+             'pi':fr'\pi',
+             'nabla':fr'\nabla',
+             'theta':fr'\theta'}
 
 ss_dir = "/Users/omkar/Desktop/Screenshots/"
 
 #get a greek letter from the dictionary
 def greek(name):
     return greek_dic.get(name)
+
+def cos():
+    return fr"\cos"
+
+def sin(string):
+    return fr"\sin"
 
 def give_infinity():
     infinity = "\infty"
@@ -85,6 +93,16 @@ def line(string, double):
             fl.write(string + "\n")
         elif double == True:
             fl.write(string + "\\\\" + "\n")
+
+def d_partial(x, y):
+    return fr"\frac{{\partial {y}}}{{\partial {x}}}"
+
+def equation(left, right):
+    fl.write("\n")
+    fl.write(fr"\begin{{equation}}" + "\n")
+    fl.write(left + " = " + right)
+    fl.write("\n")
+    fl.write(fr"\end{{equation}}" + "\n")
 
 #math formatting (math italics)
 def math(string):
