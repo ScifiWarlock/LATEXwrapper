@@ -1,4 +1,7 @@
 from pytex import LATEXdefinitions as ld
+import os
+
+os.chdir("/Users/omkar/Desktop/PyTeX/Multi_13/13_6")
 
 ld.create("13.6Notes")
 ld.clear()

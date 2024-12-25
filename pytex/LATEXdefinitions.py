@@ -39,10 +39,10 @@ def create(name):
     global fl
     global tex_name
     tex_name = name
-    fl = open("/Users/omkar/Desktop/PyTeX/Multi_13/13_6{file_name}.tex".format(file_name = name), 'a')
+    fl = open("/Users/omkar/Desktop/PyTeX/Multi_13/13_6/{file_name}.tex".format(file_name = name), 'a')
 
 def clear():
-    with open(f"/Users/omkar/Desktop/PyTeX/Multi_13/13_6{tex_name}.tex", "w") as k:
+    with open(f"/Users/omkar/Desktop/PyTeX/Multi_13/13_6/{tex_name}.tex", "w") as k:
         pass 
 
 def texcurl(string):
@@ -148,7 +148,7 @@ def gahzamn():
 
 #compile the python script and open it in Texshop file
 def compile():
-    subprocess.run(["open", "-a", "TeXShop", f"//Users/omkar/Desktop/PyTeX/Multi_13/13_6{tex_name}.tex"])
+    subprocess.run(["open", "-a", "TeXShop", f"/Users/omkar/Desktop/PyTeX/Multi_13/13_6/{tex_name}.tex"])
 
 
 
