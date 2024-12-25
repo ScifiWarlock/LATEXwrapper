@@ -1,4 +1,4 @@
-import LATEXdefintions as ld
+from pytex import LATEXdefinitions as ld
 
 ld.create("13.6Notes")
 ld.clear()
