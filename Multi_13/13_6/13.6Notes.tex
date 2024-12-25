@@ -77,4 +77,83 @@ u = 3/5\vec{i}+4/5\vec{j}
 \nabla f(-3/4, 0)\cdot u = -9/2\vec{i}\cdot(3/5\vec{i}+4/5\vec{j})
 \end{equation}
 So the directional derivative or dot product for this question evaluates to: -27/10\\
+\end{document}\documentclass{article}
+\title{Multi 13.6 Notes}
+\author{Omkar Tasgaonkar}
+\usepackage{graphicx}
+\graphicspath{{/Users/omkar/Desktop/Screenshots/}}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\listoffigures
+\pagebreak
+
+\subsection{The Directional Derivative:}
+
+The directional derivative tells us the slope in a direction:\\
+
+\begin{equation}
+\frac{\partial f}{\partial x} =  slope\ in\ x-dir
+\end{equation}
+
+\begin{equation}
+\frac{\partial f}{\partial y} =  slope\ in\ y-dir
+\end{equation}
+
+\begin{figure}[h]
+\caption{A graph z = f(x, y) represents the hill}
+\centering
+\includegraphics[width=5cm, height=5cm]{ss 2024-12-24 at 20.55.png}
+\end{figure}
+We want to find the slope in a certain direction, a rotation of theta in cylindrical
+
+\begin{figure}[h]
+\caption{Rotation of theta}
+\centering
+\includegraphics[width=5cm, height=5cm]{ss 2024-12-24 at 20.57.png}
+\end{figure}
+So our direction vector $u$
+Therefore our directional derivative is the dot product of two vectors, now which vectors?\\
+
+\subsection{The Gradient}
+
+The gradient tells us the biggest derivative vector at a certain point in the graph!
+
+\begin{figure}[h]
+\caption{The Gradient, max growth}
+\centering
+\includegraphics[width=5cm, height=5cm]{ss 2024-12-24 at 21.01.png}
+\end{figure}
+
+\begin{equation}
+\nabla f(x,y) = \frac{\partial f}{\partial x}\vec{i}+\frac{\partial f}{\partial y}\vec{j}
+\end{equation}
+So now, if we rotate this gradient by an angle theta, then we can say that the gradient is a subset of rotated gradients
+Or that $\nabla$ f(x, y) $\in$ G where G is the superset\\
+
+For the final step, the directional derivative must be a scalar quantity as it is a slope, so:
+
+\begin{equation}
+Directional\ derivative = \nabla f(x,y)\cdot u
+\end{equation}
+Whereby $u$ is the direction vector for angle $\theta$\\
+
+
+\subsubsection{Using $\nabla$ f(x, y) to find Directional Derivative}
+Find the directional derivative of $f(x,y) = 3x^2 - 2y^2 at (-3/4, 0)$ in the direction of:
+$3/4\vec{i}+\vec{j}$\\
+
+\begin{equation}
+\nabla f(x,y) = 6x\vec{i}-4y\vec{j}
+\end{equation}
+
+\begin{equation}
+u = 3/5\vec{i}+4/5\vec{j}
+\end{equation}
+
+\begin{equation}
+\nabla f(-3/4, 0)\cdot u = -9/2\vec{i}\cdot(3/5\vec{i}+4/5\vec{j})
+\end{equation}
+So the directional derivative or dot product for this question evaluates to: -27/10\\
 \end{document}
