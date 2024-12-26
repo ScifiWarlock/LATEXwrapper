@@ -1,0 +1,62 @@
+\documentclass{article}
+\title{TA Problems of the Week: Semester One}
+\author{Omkar Tasgaonkar}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\graphicspath{{/Users/omkar/Desktop/Screenshots/}}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\pagebreak
+
+\subsection{Problem of the week (9/30 - 10/3): Integrals!}
+Given a function $f(x)$ at $x$ = 2$\pi$, which outputs -1:\\
+
+
+\begin{equation}
+If\ f'(x) = -(1 - \sin^{2}(\pi/2 - x))^{1/2}
+\end{equation}
+Find $f(x)$\\
+
+
+\subsubsection{Solution:}
+Assume domain restriction from 0 to $\pi$/2\\
+
+
+\begin{equation}
+\sin^{2}(\pi/2 -x) = \cos^{2}(x)
+\end{equation}
+
+\begin{equation}
+f'(x) = -(1 - \cos^{2}(x))^{1/2}
+\end{equation}
+
+\begin{equation}
+-(1 - \cos^{2}(x))^{1/2} = -(\sin^{2}(x))^{1/2}
+\end{equation}
+
+\begin{equation}
+-(\sin^{2}(x))^{1/2} = -\sin(x)
+\end{equation}
+Now that we have simplified the derivative to a simple cos function, we can integrate it. Let's review the fundamental theorem of calculus first: \\
+\(\int_{a}^{b} g(x) \,dx \) = f(b) - f(a)\\
+
+\[\int -\sin(x) \,dx \]
+
+\begin{equation}
+ = \cos(x) + C
+\end{equation}
+
+\begin{equation}
+\cos(2\pi) + C = -1
+\end{equation}
+
+\begin{equation}
+C = -2
+\end{equation}
+
+\begin{equation}
+So\ f(x) = \cos(x) - 2
+\end{equation}
+\end{document}
