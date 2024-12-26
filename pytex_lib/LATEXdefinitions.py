@@ -142,6 +142,13 @@ def integral(func, var, lower = None, upper = None):
 def sqrt(string):
     return fr"\sqrt{string}"
 
+#2D and 3D vector function; simply omit the z dimension if no need for 3D vector
+def vector_3D(x, y, z = None):
+    if z == None:
+        return fr"{x}" + fr"\vec{{i}}" + "+" + fr"{y}" + fr"\vec{{j}}"
+    else:
+        return fr"{x}" + fr"\vec{{i}}" + "+" + fr"{y}" + fr"\vec{{j}}" + "+" + fr"{z}" + fr"\vec{{k}}"
+
 #end the script
 def gahzamn():
     fl.write(fr"\end{{document}}")
