@@ -1,6 +1,5 @@
 from pytex_lib import LATEXdefinitions as ld
 import os
-
 os.chdir("/Users/omkar/Desktop/PyTeX/Multi_13/13_6")
 
 ld.create("13.6Notes")
@@ -24,13 +23,11 @@ ld.line("We want to find the slope in a certain direction, a rotation of theta i
 
 ld.image(20.57, "Rotation of theta")
 ld.line("So our direction vector ;math('u');", False)
-
 ld.line("Therefore our directional derivative is the dot product of two vectors, now which vectors?", True)
 
 ld.topic("The Gradient")
 ld.line("", False)
 ld.line("The gradient tells us the biggest derivative vector at a certain point in the graph!", False)
-
 ld.image(21.01, "The Gradient, max growth")
 ld.equation(ld.greek('nabla') + ' f(x,y)', ld.d_partial('x', 'f')+ fr"\vec{{i}}" + "+" + ld.d_partial('y', 'f') + fr"\vec{{j}}")
 
