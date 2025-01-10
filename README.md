@@ -1,6 +1,6 @@
 Welcome to PyTeX. This is a collection of easily implementable python methods that convert parameters into LaTeX for easier, more efficient scripting.
 
-Below are the methods:
+Below are the methods (currently being overhauled by autoscript. These methods can still be used but they will not be required to be explicitly used. Autoscript will refer to them in the backend):
 
 1. greek(): no params, accesses greek letters and formats in latex
    - Alpha, beta, gamma, delta, epsilon, zeta, eta, theta, lambda, mu, pi, nabla
@@ -39,6 +39,4 @@ Below are the methods:
 
 18. sqrt(string): returns a square root formatting; can be used in a line cmd
 
-19. gahzamn(): no params, required for ending the latex doc
-
-20. compile(): no params, needed to launch subprocess cmd to populate latex file
+19. compile(): no params, needed to launch subprocess cmd to populate latex file
