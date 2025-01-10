@@ -24,9 +24,9 @@ ld.equation(ld.cos() + "^" + fr"{{2}}" + "(" + ld.greek('pi') + "/2 -x)", ld.sin
 ld.equation("f'(x)", ("-(1 - " + (ld.sin() + "^" + fr"{{2}}" + "(x)")) + ")" + "^" + fr"{{1/2}}")
 ld.equation(("-(1 - " + (ld.sin() + "^" + fr"{{2}}" + "(x)")) + ")" + "^" + fr"{{1/2}}", "-("+ (ld.cos() + "^" + fr"{{2}}" + "(x)") + ")" + "^" + fr"{{1/2}}")
 ld.equation("-("+ (ld.cos() + "^" + fr"{{2}}" + "(x)") + ")" + "^" + fr"{{1/2}}", "-" + ld.cos() + "(x)")
+ld.line(" ", True)
 
-ld.line("Now that we have simplified the derivative to a simple cos function, we can integrate it. Let's review the fundamental theorem of calculus first: ", True)
-ld.line(";integral('g(x)', 'x', 'a', 'b'); = f(b) - f(a)", True)
+ld.line("Now that we have simplified the derivative to a simple cos function, we can integrate it.", True)
 
 ld.write_integral("-" + ld.cos() + '(x)', 'x', True)
 ld.equation("", ld.sin() + "(x) + C" )

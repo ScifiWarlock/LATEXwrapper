@@ -1,9 +1,16 @@
 import os
 import subprocess
 import datetime
+import cmath
+import random
+#import enchant
+import nltk
+from nltk.corpus import wordnet
+import requests
 
 date = datetime.date.today()
 ss_date = date.strftime("%Y-%m-%d")
+#dict = PyDictionary()
 
 greek_dic = {'alpha':fr'\alpha', 
              'beta':fr'\beta', 
@@ -16,7 +23,8 @@ greek_dic = {'alpha':fr'\alpha',
              'lambda':fr'\lamda',
              'mu':fr'\mu',
              'pi':fr'\pi',
-             'nabla':fr'\nabla'}
+             'nabla':fr'\nabla',
+             'dot':fr'\dot'}
 
 ss_dir = "/Users/omkar/Desktop/Screenshots/"
 
@@ -38,10 +46,10 @@ def create(name):
     global fl
     global tex_name
     tex_name = name
-    fl = open("/Users/omkar/Desktop/PyTeX/POTW/{file_name}.tex".format(file_name = name), 'a')
+    fl = open("/Users/omkar/Desktop/PyTeX/Multi_13/13_7/{file_name}.tex".format(file_name = name), 'a')
 
 def clear():
-    with open(f"/Users/omkar/Desktop/PyTeX/POTW/{tex_name}.tex", "w") as k:
+    with open(f"/Users/omkar/Desktop/PyTeX/Multi_13/13_7/{tex_name}.tex", "w") as k:
         pass 
 
 def texcurl(string):
@@ -162,7 +170,44 @@ def gahzamn():
 
 #compile the python script and open it in Texshop file
 def compile():
-    subprocess.run(["open", "-a", "TeXShop", f"/Users/omkar/Desktop/PyTeX/POTW/{tex_name}.tex"])
+    subprocess.run(["open", "-a", "TeXShop", f"/Users/omkar/Desktop/PyTeX/Multi_13/13_7/{tex_name}.tex"])
+
+def shazamn(input):
+    equation_bool = False
+    line_list = input.split("\n")
+
+    #general topic and example problem formatting
+    for liner in line_list:
+        if "to" in liner:
+            topic(liner.replace("t ", "", 1))
+        elif "ex" in liner:
+            example(liner.replace("e ", "", 1))
+
+        #equations will not have words so check if the line has words
+        elif "=" in liner:
+            word_list = liner.split()
+            for word in word_list:
+                url = f"https://www.dictionary.com/browse/{word}"
+                response = requests.get(url)
+
+                #at the first instance of a word, assume its a line
+                if response.status_code == 200:
+                    word_list.pop(-1)
+                    liner = " ".join(word_list)
+                    line(liner, bool(word_list[len(word_list)-1]))
+                    break
+                else:
+                    equation_bool = True
+                    break
+            
+            #now format as equation if bool is true, then switch bool to false
+            #like an on and off switch
+            if equation_bool:
+                print(word_list)
+                functions_list = liner.split(" = ")
+                equation(functions_list[0], functions_list[1])
+                equation_bool = False
+            
 
 
 
