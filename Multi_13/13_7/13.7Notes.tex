@@ -1,0 +1,80 @@
+\documentclass{article}
+\title{Multi 13.7 Notes}
+\author{Omkar Tasgaonkar}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\graphicspath{{/Users/omkar/Desktop/Screenshots/}}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\listoffigures
+\pagebreak
+
+\subsection{Finding the equation of a plane}
+To find the equation of a plane, you need a normal vector and a point on the plane\\
+
+\begin{equation}
+a(x - x0) + b(y - y0) + c(z-z0) = 0
+\end{equation}
+The normal vector is \nabla F(x0, y0, z0), which is the gradient
+To find the equation of a line, you need a direction vector and point on the line. The normal vector is the gradient as well, and you can write a parametric equation\\
+
+\begin{equation}
+x = x0 + at
+\end{equation}
+
+\begin{equation}
+y = y0 + bt
+\end{equation}
+
+\begin{equation}
+z = z0 + ct
+\end{equation}
+
+\subsection{Tangent plane and normal line to a surface}
+If given z = f(x, y), then rewrite as: 
+
+\begin{equation}
+F(x, y, z) = f(x, y) - z
+\end{equation}
+
+\subsubsection{Writing a surface equation}
+For F(x, y, z), if \nabla F(x, y, z) \cdot r(t) where r(t) is the tangent vector
+This dotproduct is equal to zero, so the gradient and tangent vector are orthogonal refer to the example surface below
+
+\begin{figure}[h]
+\caption{There are infinitely many tangent vectors orthogonal to the gradient, which is the normal vector, perpendicular to the plane}
+\centering
+\includegraphics[width=5cm, height=5cm]{ss 2025-01-08 at 08.22.png}
+\end{figure}
+The gradient is also the direction vector of the normal line, so you can write the equation of the normal line as well given a point on that line\\
+
+\subsubsection{Finding the equation of a tangent plane}
+Given $z^2 - 2x^2 - 2y^2$ = 12, find a tangent plane at point (1, -1, 4)
+
+\begin{equation}
+F(x, y, z) = z^2 - 2x^2 - 2y^2 - 12 = 0
+\end{equation}
+
+\begin{equation}
+\frac{\partial F}{\partial x} = -4x
+\end{equation}
+
+\begin{equation}
+\frac{\partial F}{\partial y} = -4y
+\end{equation}
+
+\begin{equation}
+\frac{\partial F}{\partial z} = 2z
+\end{equation}
+
+\begin{equation}
+-4(x-1) + 4(y+1) +8(z-4) = 0
+\end{equation}
+
+\subsection{Whats up this is test topic}
+
+\subsubsection{    Whats up this a test example}
+hello 2x^2 = 2x^2\\
+\end{document}

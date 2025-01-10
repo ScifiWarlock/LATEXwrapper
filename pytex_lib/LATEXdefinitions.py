@@ -1,9 +1,16 @@
 import os
 import subprocess
 import datetime
+import cmath
+import random
+#import enchant
+import nltk
+from nltk.corpus import wordnet
+import requests
 
 date = datetime.date.today()
 ss_date = date.strftime("%Y-%m-%d")
+#dict = PyDictionary()
 
 greek_dic = {'alpha':fr'\alpha', 
              'beta':fr'\beta', 
@@ -17,7 +24,7 @@ greek_dic = {'alpha':fr'\alpha',
              'mu':fr'\mu',
              'pi':fr'\pi',
              'nabla':fr'\nabla',
-             'theta':fr'\theta'}
+             'dot':fr'\dot'}
 
 ss_dir = "/Users/omkar/Desktop/Screenshots/"
 
@@ -26,10 +33,10 @@ def greek(name):
     return greek_dic.get(name)
 
 def cos():
-    return fr"\cos"
-
-def sin(string):
     return fr"\sin"
+
+def sin():
+    return fr"\cos"
 
 def give_infinity():
     infinity = "\infty"
@@ -39,10 +46,10 @@ def create(name):
     global fl
     global tex_name
     tex_name = name
-    fl = open("/Users/omkar/Desktop/PyTeX/Multi_13/13_6/{file_name}.tex".format(file_name = name), 'a')
+    fl = open("/Users/omkar/Desktop/PyTeX/Multi_13/13_7/{file_name}.tex".format(file_name = name), 'a')
 
 def clear():
-    with open(f"/Users/omkar/Desktop/PyTeX/Multi_13/13_6/{tex_name}.tex", "w") as k:
+    with open(f"/Users/omkar/Desktop/PyTeX/Multi_13/13_7/{tex_name}.tex", "w") as k:
         pass 
 
 def texcurl(string):
@@ -54,6 +61,7 @@ def preamble(type, title, author):
     fl.write(fr"\title" + texcurl(fr"{title}") + "\n")
     fl.write(fr"\author" + texcurl(fr"{author}") + "\n")
     fl.write(fr"\usepackage{{graphicx}}" + "\n")
+    fl.write(fr"\usepackage{{amsmath}}" + "\n")
     fl.write(fr"\graphicspath" + "{" + texcurl(fr"{ss_dir}") + "}" + "\n")
     fl.write("\n")
 
@@ -63,8 +71,9 @@ def figure_index():
     fl.write(fr"\pagebreak" + "\n")
 
 #adds a list of topics and sections/subsections within the doc
-def topic_index():
+def topic_index(bool):
     fl.write(fr"\tableofcontents" + "\n")
+    if bool == True: fl.write(fr"\pagebreak" + "\n")
 
 #ong_bruh lets begin
 def ong_bruh():
@@ -135,12 +144,25 @@ def example(string):
 def integral(func, var, lower = None, upper = None):
     if lower != None and upper != None:
         return (fr"\(\int_" + texcurl(fr"{lower}") + "^" + texcurl(fr"{upper}") + fr" {func} \," + fr"d{var} \)")
+    elif lower == None and upper == None:
+        return (fr"\(\int" + fr" {func} \," + fr"d{var} \)")
+
+def write_integral(func, var, lower=None, upper=None):  
+    if lower != None and upper != None:
+        fl.write(fr"\[\int_" + texcurl(fr"{lower}") + "^" + texcurl(fr"{upper}") + fr" {func} \," + fr"d{var} \]" + "\n")
     else:
-        return (fr"\(\int" + fr" {func} \," + fr"d{var} \)")  
+        fl.write(fr"\[\int" + fr" {func} \," + fr"d{var} \]" + "\n")
 
 #sqrt function    
 def sqrt(string):
     return fr"\sqrt{string}"
+
+#2D and 3D vector function; simply omit the z dimension if no need for 3D vector
+def vector_3D(x, y, z = None):
+    if z == None:
+        return fr"{x}" + fr"\vec{{i}}" + "+" + fr"{y}" + fr"\vec{{j}}"
+    else:
+        return fr"{x}" + fr"\vec{{i}}" + "+" + fr"{y}" + fr"\vec{{j}}" + "+" + fr"{z}" + fr"\vec{{k}}"
 
 #end the script
 def gahzamn():
@@ -148,7 +170,44 @@ def gahzamn():
 
 #compile the python script and open it in Texshop file
 def compile():
-    subprocess.run(["open", "-a", "TeXShop", f"/Users/omkar/Desktop/PyTeX/Multi_13/13_6/{tex_name}.tex"])
+    subprocess.run(["open", "-a", "TeXShop", f"/Users/omkar/Desktop/PyTeX/Multi_13/13_7/{tex_name}.tex"])
+
+def shazamn(input):
+    equation_bool = False
+    line_list = input.split("\n")
+
+    #general topic and example problem formatting
+    for liner in line_list:
+        if "to" in liner:
+            topic(liner.replace("t ", "", 1))
+        elif "ex" in liner:
+            example(liner.replace("e ", "", 1))
+
+        #equations will not have words so check if the line has words
+        elif "=" in liner:
+            word_list = liner.split()
+            for word in word_list:
+                url = f"https://www.dictionary.com/browse/{word}"
+                response = requests.get(url)
+
+                #at the first instance of a word, assume its a line
+                if response.status_code == 200:
+                    word_list.pop(-1)
+                    liner = " ".join(word_list)
+                    line(liner, bool(word_list[len(word_list)-1]))
+                    break
+                else:
+                    equation_bool = True
+                    break
+            
+            #now format as equation if bool is true, then switch bool to false
+            #like an on and off switch
+            if equation_bool:
+                print(word_list)
+                functions_list = liner.split(" = ")
+                equation(functions_list[0], functions_list[1])
+                equation_bool = False
+            
 
 
 
