@@ -24,13 +24,13 @@ greek_dic = {'alpha':fr'\alpha',
              'mu':fr'\mu',
              'pi':fr'\pi',
              'nabla':fr'\nabla',
-             'dot':fr'\dot'}
+             'dot':fr'\cdot'}
 
 ss_dir = "/Users/omkar/Desktop/Screenshots/"
 
 #get a greek letter from the dictionary
 def greek(name):
-    return greek_dic.get(name)
+    return math(greek_dic.get(name))
 
 def cos():
     return fr"\sin"
@@ -85,6 +85,8 @@ def ong_bruh():
 #no need for splitting up the string
 def line(string, double):
     retstring = ""
+    left_index = 0
+    right_index = 0
     if ";" in string:
         split_list = string.split(";")
         for element in split_list:
@@ -97,6 +99,54 @@ def line(string, double):
         elif double == True:
             fl.write(retstring + "\\\\" + "\n")
             fl.write("\n")
+
+    if "=" in string:
+        #figure out which part to format the math
+        split_list_math = string.split()
+        start = split_list_math.index("=")
+
+        #check the left side of the list
+        for i in range(start):
+            check_word = split_list_math[start - i]
+            url = f"https://www.dictionary.com/browse/{check_word}"
+            response_left = requests.get(url)
+
+            #check if its a valid word
+            if response_left.status_code == 200:
+                left_index = i
+                break
+            
+            else: continue
+        
+        #check the right side of the list
+        for j in range(len(split_list_math) - start):
+            check_word_right = split_list_math[start + j]
+            url = f"https://www.dictionary.com/browse/{check_word_right}"
+            response_right = requests.get(url)
+
+            if response_right.status_code == 200:
+                right_index = j
+                break
+            else: continue
+
+        #delete the word elements and rejoin it into a math formatted string
+        del split_list_math[start + j:len(split_list_math)]
+        del split_list_math[0:start - i]
+
+        print(split_list_math)
+        math_format = " ".join(split_list_math)
+        l_math_format = math(math_format)
+        print(l_math_format)
+        print(math_format)
+
+        #replace the original string content with math formatted content
+        string = string.replace(math_format, l_math_format)
+        print(string)
+        if double == False:
+            fl.write(string + "\n")
+        elif double == True:
+            fl.write(string + "\\\\" + "\n")
+            
     else:
         if double == False:
             fl.write(string + "\n")
@@ -107,11 +157,42 @@ def d_partial(x, y):
     return fr"\frac{{\partial {y}}}{{\partial {x}}}"
 
 def equation(left, right):
-    fl.write("\n")
-    fl.write(fr"\begin{{equation}}" + "\n")
-    fl.write(left + " = " + right)
-    fl.write("\n")
-    fl.write(fr"\end{{equation}}" + "\n")
+
+    #on off switch for prescence of function
+    func_bool = False
+
+    #this is similar to line function parse; for temporary shazamn purposes
+    retstring = ""
+    retstring_r = ""
+    if ";" in left:
+        split_list = left.split(";")
+        for element in split_list:
+            if "'" in element:
+                retstring += str(eval(element))
+            else:
+                retstring += left
+
+    #check both the left and right side of the equations
+    if ";" in right:
+        split_list_r = right.split(";")
+        for element_r in split_list_r:
+            if "'" in element_r:
+                retstring_r += str(eval(element_r))
+            else:
+                retstring_r += right
+    
+    if func_bool:
+        fl.write("\n")
+        fl.write(fr"\begin{{equation}}" + "\n")
+        fl.write(retstring + " = " + retstring_r)
+        fl.write("\n")
+        fl.write(fr"\end{{equation}}" + "\n")
+    else:
+        fl.write("\n")
+        fl.write(fr"\begin{{equation}}" + "\n")
+        fl.write(left + " = " + right)
+        fl.write("\n")
+        fl.write(fr"\end{{equation}}" + "\n")
 
 #math formatting (math italics)
 def math(string):

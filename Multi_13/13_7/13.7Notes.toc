@@ -1,0 +1,6 @@
+\contentsline {subsection}{\numberline {0.1}Finding the equation of a plane}{2}{}%
+\contentsline {subsection}{\numberline {0.2}Tangent plane and normal line to a surface}{2}{}%
+\contentsline {subsubsection}{\numberline {0.2.1}Writing a surface equation}{2}{}%
+\contentsline {subsubsection}{\numberline {0.2.2}Finding the equation of a tangent plane}{2}{}%
+\contentsline {subsection}{\numberline {0.3}Whats up this is test topic}{3}{}%
+\contentsline {subsubsection}{\numberline {0.3.1} Whats up this a test example}{3}{}%
