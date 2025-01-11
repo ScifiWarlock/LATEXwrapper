@@ -87,8 +87,9 @@ def line(string, double):
     retstring = ""
     left_index = 0
     right_index = 0
+    split_list = string.split(";")
+    
     if ";" in string:
-        split_list = string.split(";")
         for element in split_list:
             if "'" in element:
                 retstring += str(eval(element))
@@ -133,21 +134,41 @@ def line(string, double):
         del split_list_math[start + j:len(split_list_math)]
         del split_list_math[0:start - i]
 
-        print(split_list_math)
         math_format = " ".join(split_list_math)
         l_math_format = math(math_format)
-        print(l_math_format)
-        print(math_format)
 
         #replace the original string content with math formatted content
         string = string.replace(math_format, l_math_format)
-        print(string)
+        split_list_greek = string.split()
+
+        print(split_list_greek)
+
+        #check for greek words in this new string
+        for index, word in enumerate(split_list_greek):
+            if word in greek_dic:
+                split_list_greek[index] = math(greek_dic.get(word))
+                print(word)
+                string = " ".join(split_list_greek)
+                print(string)
+            else: continue
+
         if double == False:
             fl.write(string + "\n")
         elif double == True:
             fl.write(string + "\\\\" + "\n")
             
     else:
+        split_list_greek = string.split()
+
+        #check for greek words in this new string
+        for index, word in enumerate(split_list_greek):
+            if word in greek_dic:
+                split_list_greek[index] = math(greek_dic.get(word))
+                print(word)
+                string = " ".join(split_list_greek)
+                print(string)
+            else: continue
+
         if double == False:
             fl.write(string + "\n")
         elif double == True:
@@ -273,9 +294,8 @@ def shazamn(input):
 
                 #at the first instance of a word, assume its a line
                 if response.status_code == 200:
-                    word_list.pop(-1)
                     liner = " ".join(word_list)
-                    line(liner, bool(word_list[len(word_list)-1]))
+                    line(liner, not bool(word_list[len(word_list)-1]))
                     break
                 else:
                     equation_bool = True

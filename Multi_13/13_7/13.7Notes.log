@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  10 JAN 2025 11:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  10 JAN 2025 17:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -230,12 +230,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
 
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 82--83
-
- []
-
-[3 </Users/omkar/Desktop/Screenshots/ss 2025-01-08 at 08.22.png>]
+[2] [3 </Users/omkar/Desktop/Screenshots/ss 2025-01-08 at 08.22.png>]
 (./13.7Notes.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
@@ -258,7 +253,7 @@ sr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
 /local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/l
 ocal/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loca
 l/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on 13.7Notes.pdf (3 pages, 199052 bytes).
+Output written on 13.7Notes.pdf (3 pages, 199066 bytes).
 PDF statistics:
  57 PDF objects out of 1000 (max. 8388607)
  33 compressed objects within 1 object stream

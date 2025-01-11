@@ -40,8 +40,10 @@ ld.equation("-4(x-1) + 4(y+1) +8(z-4)", "0")
 
 ld.shazamn(
     """t Whats up this is test topic
+
     e Whats up this a test example
-    hello 2x^2 = 2x^2 is the equation"""
+
+    hello 2x^2 = 2x^2 is the equation nabla"""
 )
 
 ld.gahzamn()
