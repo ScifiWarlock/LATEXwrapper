@@ -39,11 +39,19 @@ ld.equation(ld.d_partial("z", "F"), "2z")
 ld.equation("-4(x-1) + 4(y+1) +8(z-4)", "0")
 
 ld.shazamn(
-    """t Whats up this is test topic
+    """# Whats up this is test topic
 
-    e Whats up this a test example
+    $ Whats up this a test example
 
-    hello 2x^2 = 2x^2 is the equation nabla"""
+    hello 2x^2 = 2x^2 is the equation nabla
+    
+    img, 21.01, test caption
+    
+    next line test before line
+    
+    line before the topic
+    
+    # Next topic yay!"""
 )
 
 ld.gahzamn()

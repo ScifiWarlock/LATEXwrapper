@@ -277,13 +277,22 @@ def compile():
 def shazamn(input):
     equation_bool = False
     line_list = input.split("\n")
+    print(line_list)
+    for index, liner in enumerate(line_list):
+        line_list[index] = liner.strip()
+    print(line_list)
 
     #general topic and example problem formatting
-    for liner in line_list:
-        if "to" in liner:
-            topic(liner.replace("t ", "", 1))
-        elif "ex" in liner:
-            example(liner.replace("e ", "", 1))
+    for index, liner in enumerate(line_list):
+        if "#" in liner:
+            topic(liner.replace("# ", "", 1))
+        elif "$" in liner:
+            example(liner.replace("$ ", "", 1))
+        
+        elif "img," in liner:
+            img_list = liner.split(",")
+            print(img_list)
+            image(img_list[1], img_list[2]) 
 
         #equations will not have words so check if the line has words
         elif "=" in liner:
@@ -295,7 +304,10 @@ def shazamn(input):
                 #at the first instance of a word, assume its a line
                 if response.status_code == 200:
                     liner = " ".join(word_list)
-                    line(liner, not bool(word_list[len(word_list)-1]))
+                    if "#" in line_list[index + 1]:
+                        line(liner, True)
+                    else:
+                        line(liner, False)
                     break
                 else:
                     equation_bool = True
@@ -308,6 +320,13 @@ def shazamn(input):
                 functions_list = liner.split(" = ")
                 equation(functions_list[0], functions_list[1])
                 equation_bool = False
+
+        #normal line case, no special formatting
+        else:
+            if "#" in line_list[index + 1]:
+                line(liner, True)
+            else:
+                line(liner, False)
             
 
 

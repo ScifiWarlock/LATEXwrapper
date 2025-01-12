@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  10 JAN 2025 17:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  11 JAN 2025 18:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -230,18 +230,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
 
-[2] [3 </Users/omkar/Desktop/Screenshots/ss 2025-01-08 at 08.22.png>]
-(./13.7Notes.aux)
+[2]
+</Users/omkar/Desktop/Screenshots/ss 2024-12-24 at 21.01.png, id=19, 102.3825pt
+ x 110.4125pt>
+File: /Users/omkar/Desktop/Screenshots/ss 2024-12-24 at 21.01.png Graphic file 
+(type png)
+<use /Users/omkar/Desktop/Screenshots/ss 2024-12-24 at 21.01.png>
+Package pdftex.def Info: /Users/omkar/Desktop/Screenshots/ss 2024-12-24 at 21.0
+1.png  used on input line 90.
+(pdftex.def)             Requested size: 142.27376pt x 142.27097pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--97
+
+ []
+
+[3 </Users/omkar/Desktop/Screenshots/ss 2025-01-08 at 08.22.png> </Users/omkar/
+Desktop/Screenshots/ss 2024-12-24 at 21.01.png>] [4] (./13.7Notes.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 2601 strings out of 474116
- 42004 string characters out of 5743681
+ 2610 strings out of 474116
+ 42529 string characters out of 5743681
  1933187 words of memory out of 5000000
- 24942 multiletter control sequences out of 15000+600000
+ 24951 multiletter control sequences out of 15000+600000
  563452 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,6n,69p,264b,251s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -253,10 +267,10 @@ sr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
 /local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/l
 ocal/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loca
 l/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on 13.7Notes.pdf (3 pages, 199066 bytes).
+Output written on 13.7Notes.pdf (4 pages, 215993 bytes).
 PDF statistics:
- 57 PDF objects out of 1000 (max. 8388607)
- 33 compressed objects within 1 object stream
+ 62 PDF objects out of 1000 (max. 8388607)
+ 35 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
