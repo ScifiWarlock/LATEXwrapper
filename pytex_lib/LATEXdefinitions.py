@@ -24,13 +24,13 @@ greek_dic = {'alpha':fr'\alpha',
              'mu':fr'\mu',
              'pi':fr'\pi',
              'nabla':fr'\nabla',
-             'dot':fr'\dot'}
+             'dot':fr'\cdot'}
 
 ss_dir = "/Users/omkar/Desktop/Screenshots/"
 
 #get a greek letter from the dictionary
 def greek(name):
-    return greek_dic.get(name)
+    return math(greek_dic.get(name))
 
 def cos():
     return fr"\sin"
@@ -85,8 +85,11 @@ def ong_bruh():
 #no need for splitting up the string
 def line(string, double):
     retstring = ""
+    left_index = 0
+    right_index = 0
+    split_list = string.split(";")
+    
     if ";" in string:
-        split_list = string.split(";")
         for element in split_list:
             if "'" in element:
                 retstring += str(eval(element))
@@ -97,7 +100,75 @@ def line(string, double):
         elif double == True:
             fl.write(retstring + "\\\\" + "\n")
             fl.write("\n")
+
+    if "=" in string:
+        #figure out which part to format the math
+        split_list_math = string.split()
+        start = split_list_math.index("=")
+
+        #check the left side of the list
+        for i in range(start):
+            check_word = split_list_math[start - i]
+            url = f"https://www.dictionary.com/browse/{check_word}"
+            response_left = requests.get(url)
+
+            #check if its a valid word
+            if response_left.status_code == 200:
+                left_index = i
+                break
+            
+            else: continue
+        
+        #check the right side of the list
+        for j in range(len(split_list_math) - start):
+            check_word_right = split_list_math[start + j]
+            url = f"https://www.dictionary.com/browse/{check_word_right}"
+            response_right = requests.get(url)
+
+            if response_right.status_code == 200:
+                right_index = j
+                break
+            else: continue
+
+        #delete the word elements and rejoin it into a math formatted string
+        del split_list_math[start + j:len(split_list_math)]
+        del split_list_math[0:start - i]
+
+        math_format = " ".join(split_list_math)
+        l_math_format = math(math_format)
+
+        #replace the original string content with math formatted content
+        string = string.replace(math_format, l_math_format)
+        split_list_greek = string.split()
+
+        print(split_list_greek)
+
+        #check for greek words in this new string
+        for index, word in enumerate(split_list_greek):
+            if word in greek_dic:
+                split_list_greek[index] = math(greek_dic.get(word))
+                print(word)
+                string = " ".join(split_list_greek)
+                print(string)
+            else: continue
+
+        if double == False:
+            fl.write(string + "\n")
+        elif double == True:
+            fl.write(string + "\\\\" + "\n")
+            
     else:
+        split_list_greek = string.split()
+
+        #check for greek words in this new string
+        for index, word in enumerate(split_list_greek):
+            if word in greek_dic:
+                split_list_greek[index] = math(greek_dic.get(word))
+                print(word)
+                string = " ".join(split_list_greek)
+                print(string)
+            else: continue
+
         if double == False:
             fl.write(string + "\n")
         elif double == True:
@@ -107,11 +178,42 @@ def d_partial(x, y):
     return fr"\frac{{\partial {y}}}{{\partial {x}}}"
 
 def equation(left, right):
-    fl.write("\n")
-    fl.write(fr"\begin{{equation}}" + "\n")
-    fl.write(left + " = " + right)
-    fl.write("\n")
-    fl.write(fr"\end{{equation}}" + "\n")
+
+    #on off switch for prescence of function
+    func_bool = False
+
+    #this is similar to line function parse; for temporary shazamn purposes
+    retstring = ""
+    retstring_r = ""
+    if ";" in left:
+        split_list = left.split(";")
+        for element in split_list:
+            if "'" in element:
+                retstring += str(eval(element))
+            else:
+                retstring += left
+
+    #check both the left and right side of the equations
+    if ";" in right:
+        split_list_r = right.split(";")
+        for element_r in split_list_r:
+            if "'" in element_r:
+                retstring_r += str(eval(element_r))
+            else:
+                retstring_r += right
+    
+    if func_bool:
+        fl.write("\n")
+        fl.write(fr"\begin{{equation}}" + "\n")
+        fl.write(retstring + " = " + retstring_r)
+        fl.write("\n")
+        fl.write(fr"\end{{equation}}" + "\n")
+    else:
+        fl.write("\n")
+        fl.write(fr"\begin{{equation}}" + "\n")
+        fl.write(left + " = " + right)
+        fl.write("\n")
+        fl.write(fr"\end{{equation}}" + "\n")
 
 #math formatting (math italics)
 def math(string):
@@ -175,13 +277,22 @@ def compile():
 def shazamn(input):
     equation_bool = False
     line_list = input.split("\n")
+    print(line_list)
+    for index, liner in enumerate(line_list):
+        line_list[index] = liner.strip()
+    print(line_list)
 
     #general topic and example problem formatting
-    for liner in line_list:
-        if "to" in liner:
-            topic(liner.replace("t ", "", 1))
-        elif "ex" in liner:
-            example(liner.replace("e ", "", 1))
+    for index, liner in enumerate(line_list):
+        if "#" in liner:
+            topic(liner.replace("# ", "", 1))
+        elif "$" in liner:
+            example(liner.replace("$ ", "", 1))
+        
+        elif "img," in liner:
+            img_list = liner.split(",")
+            print(img_list)
+            image(img_list[1], img_list[2]) 
 
         #equations will not have words so check if the line has words
         elif "=" in liner:
@@ -192,9 +303,11 @@ def shazamn(input):
 
                 #at the first instance of a word, assume its a line
                 if response.status_code == 200:
-                    word_list.pop(-1)
                     liner = " ".join(word_list)
-                    line(liner, bool(word_list[len(word_list)-1]))
+                    if "#" in line_list[index + 1]:
+                        line(liner, True)
+                    else:
+                        line(liner, False)
                     break
                 else:
                     equation_bool = True
@@ -207,6 +320,13 @@ def shazamn(input):
                 functions_list = liner.split(" = ")
                 equation(functions_list[0], functions_list[1])
                 equation_bool = False
+
+        #normal line case, no special formatting
+        else:
+            if "#" in line_list[index + 1]:
+                line(liner, True)
+            else:
+                line(liner, False)
             
 
 
