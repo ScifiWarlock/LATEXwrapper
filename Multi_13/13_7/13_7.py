@@ -50,7 +50,7 @@ ld.shazamn(
     next line test before line
     
     line before the topic
-    
+
     # Next topic yay!"""
 )
 
