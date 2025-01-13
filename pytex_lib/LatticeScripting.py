@@ -9,6 +9,8 @@ def read(input, epochs):
     for index, liner in enumerate(line_list):
         line_list[index] = liner.strip()
 
+    print(line_list)
+
     #cycle through the specified number of epochs
     for i in range(epochs):
         for liner in line_list:

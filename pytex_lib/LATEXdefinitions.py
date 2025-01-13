@@ -260,7 +260,7 @@ def sqrt(string):
     return fr"\sqrt{string}"
 
 #2D and 3D vector function; simply omit the z dimension if no need for 3D vector
-def vector_3D(x, y, z = None):
+def vector(x, y, z = None):
     if z == None:
         return fr"{x}" + fr"\vec{{i}}" + "+" + fr"{y}" + fr"\vec{{j}}"
     else:

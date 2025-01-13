@@ -1,2 +1,2 @@
-test-word-new,
-welcome,
+test-word-new
+,welcome,

@@ -51,6 +51,8 @@ ld.shazamn(
     
     line before the topic
 
+    3i + 4j + 6k
+
     # Next topic yay!"""
 )
 
